@@ -21,12 +21,27 @@ export const blogsRepository = {
         return this.map(blog)
     },
     getAll() {
-
+        return db.blogs.map(p => this.map(p))
     },
-    del(id: string) {
+    del: function (id: string) {
+        for (let i = 0; i < db.blogs.length; i++) {
+            if (db.blogs[i].id === id) {
+                db.blogs.splice(i, 1)
+            }
+        }
+
 
     },
     put(blog: BlogInputModel, id: string) {
+   // const updateBlog= db.blogs.find(b => b.id === id)
+   //      if (updateBlog){
+   //          updateBlog.name=blog.name;
+   //          updateBlog.description=blog.description;
+   //          updateBlog.websiteUrl=blog.websiteUrl;
+   //      }
+   //      return updateBlog;
+   //      const blog = blogsRepository.find(id)!
+        db.blogs = db.blogs.map(p => p.id === id ? {...p, ...blog, blogName: blog.name} : p)
 
     },
     map(blog: BlogDbType) {
