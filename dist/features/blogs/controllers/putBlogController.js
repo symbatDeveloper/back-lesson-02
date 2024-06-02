@@ -5,8 +5,7 @@ const blogsRepository_1 = require("../blogsRepository");
 const putBlogController = (req, res) => {
     const updateBlog = blogsRepository_1.blogsRepository.put(req.body, req.params.id);
     //authoriz?
-    res
-        .status(204)
+    res.status(204)
         .json(updateBlog);
 };
 exports.putBlogController = putBlogController;

@@ -8,11 +8,7 @@ import {blogValidators} from "../middlewares/blogValidators";
 export const createBlogController = (req: Request<any, any, BlogInputModel>, res: Response<BlogViewModel>) => {
     const newBlogId = blogsRepository.create(req.body)
     const newBlog = blogsRepository.findAndMap(newBlogId)
-    // const errors =blogValidators();
-    //
-    // if (errors.length > 0) {
-    //     return res.status(400).json({ errorsMessages: errors });
-    // }
+
 if (newBlog){
     res
         .status(201)

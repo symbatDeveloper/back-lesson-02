@@ -13,4 +13,3 @@ exports.SETTINGS = {
     },
     ADMIN: process.env.ADMIN || 'admin:qwerty',
 };
-// console.log(process.env.ADMIN)

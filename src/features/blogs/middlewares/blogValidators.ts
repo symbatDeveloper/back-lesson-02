@@ -14,13 +14,10 @@ export const nameValidator =body('name').isString().withMessage('not string')
 export const descriptionValidator = body('description').isString().withMessage('not string')
     .trim().isLength({min: 1, max: 500}).withMessage('more then 500 or 0')
 export const websiteUrlValidator = body('websiteUrl').isString().withMessage('not string')
-    .trim().isURL().withMessage('not url')
-    .isLength({min: 1, max: 100}).withMessage('more then 100 or 0')
 
 export const findBlogValidator = (req: Request<{id: string}>, res: Response, next: NextFunction) => {
     const blog = blogsRepository.find(req.params.id)
     if (!blog) {
-
         res
             .status(404)
             .json({})

@@ -12,7 +12,7 @@ const admin_middleware_1 = require("../../../global-middlewares/admin-middleware
 // blogId: string // valid
 exports.titleValidator = (0, express_validator_1.body)('title').isString().withMessage('not string')
     .trim().isLength({ min: 1, max: 30 }).withMessage('more then 30 or 0');
-exports.shortDescriptionValidator = (0, express_validator_1.body)('description').isString().withMessage('not string')
+exports.shortDescriptionValidator = (0, express_validator_1.body)('shortDescription').isString().withMessage('not string')
     .trim().isLength({ min: 1, max: 100 }).withMessage('more then 100');
 exports.contentValidator = (0, express_validator_1.body)('content').isString().withMessage('not string')
     .trim().isLength({ min: 1, max: 1000 }).withMessage('more then 1000 or 0');
@@ -27,7 +27,7 @@ const findPostValidator = (req, res, next) => {
     if (!post) {
         res
             .status(404)
-            .json({});
+            .json({ errorsMessages: { field: '404', message: '' } });
         return;
     }
     next();

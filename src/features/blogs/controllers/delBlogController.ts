@@ -1,12 +1,10 @@
 import {Request, Response} from 'express'
 import {blogsRepository} from '../blogsRepository'
+import {OutputErrorsType} from "../../../input-output-types/output-errors-type";
 
 export const delBlogController = (req: Request<{id: string}>, res: Response) => {
-     const BlogId = blogsRepository.del(req.params.id)
+     const blogId = blogsRepository.del(req.params.id)
 
-//authoziation ??
-    res
-        .status(204)
-
+        res.status(204)
 
 }

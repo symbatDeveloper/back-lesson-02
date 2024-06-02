@@ -23,12 +23,8 @@ exports.blogsRepository = {
     getAll() {
         return db_1.db.blogs.map(p => this.map(p));
     },
-    del: function (id) {
-        for (let i = 0; i < db_1.db.blogs.length; i++) {
-            if (db_1.db.blogs[i].id === id) {
-                db_1.db.blogs.splice(i, 1);
-            }
-        }
+    del(id) {
+        let fiteredDb = db_1.db.blogs.filter(b => b.id !== id);
     },
     put(blog, id) {
         // const updateBlog= db.blogs.find(b => b.id === id)

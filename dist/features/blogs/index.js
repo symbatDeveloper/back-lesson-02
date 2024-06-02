@@ -14,5 +14,5 @@ exports.blogsRouter.post('/', ...blogValidators_1.blogValidators, createBlogCont
 exports.blogsRouter.get('/', getBlogsController_1.getBlogsController);
 exports.blogsRouter.get('/:id', blogValidators_1.findBlogValidator, findBlogController_1.findBlogController);
 exports.blogsRouter.delete('/:id', admin_middleware_1.adminMiddleware, blogValidators_1.findBlogValidator, delBlogController_1.delBlogController);
-exports.blogsRouter.put('/:id', blogValidators_1.findBlogValidator, ...blogValidators_1.blogValidators, putBlogController_1.putBlogController);
+exports.blogsRouter.put('/:id', ...blogValidators_1.blogValidators, blogValidators_1.findBlogValidator, putBlogController_1.putBlogController);
 // не забудьте добавить роут в апп
