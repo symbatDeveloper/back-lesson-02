@@ -4,6 +4,7 @@ exports.delBlogController = void 0;
 const blogsRepository_1 = require("../blogsRepository");
 const delBlogController = (req, res) => {
     const blogId = blogsRepository_1.blogsRepository.del(req.params.id);
-    res.status(204);
+    res.status(204).json({});
+    return;
 };
 exports.delBlogController = delBlogController;

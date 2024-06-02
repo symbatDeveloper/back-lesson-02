@@ -6,6 +6,6 @@ import {blogsRepository} from "../../blogs/blogsRepository";
 export const putPostController = (req: Request<{id: string}, any, PostInputModel>, res: Response) => {
     const updateBlog =postsRepository.put(req.body,req.params.id)
 
-    res.status(204)
+    return res.status(204).json({})
 
 }

@@ -43,6 +43,7 @@ export const postValidators = [
     titleValidator,
     shortDescriptionValidator,
     contentValidator,
+
     blogIdValidator,
 
     inputCheckErrorsMiddleware,

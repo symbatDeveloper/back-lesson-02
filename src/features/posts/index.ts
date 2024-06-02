@@ -17,7 +17,7 @@ import {inputCheckErrorsMiddleware} from "../../global-middlewares/inputCheckErr
 
 export const postsRouter = Router()
 
-postsRouter.post('/', ...postValidators, createPostController)
+postsRouter.post('/', inputCheckErrorsMiddleware,...postValidators, createPostController)
 postsRouter.get('/', getPostsController)
 postsRouter.get('/:id',  findPostValidator,blogIdValidator, findPostController)
 postsRouter.delete('/:id',   adminMiddleware,findPostValidator,blogIdValidator,delPostController)

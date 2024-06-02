@@ -114,8 +114,7 @@ describe('/blogs', () => {
         // console.log(res.body)
 
         expect(res.body).toEqual(dataset1.blogs[0])
-    })
-    it('should del', async () => {
+    })it('should del', async () => {
         setDB(dataset1)
 
         const res = await req

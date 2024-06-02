@@ -12,7 +12,9 @@ exports.nameValidator = (0, express_validator_1.body)('name').isString().withMes
     .trim().isLength({ min: 1, max: 15 }).withMessage('more then 15');
 exports.descriptionValidator = (0, express_validator_1.body)('description').isString().withMessage('not string')
     .trim().isLength({ min: 1, max: 500 }).withMessage('more then 500 or 0');
-exports.websiteUrlValidator = (0, express_validator_1.body)('websiteUrl').isString().withMessage('not string');
+exports.websiteUrlValidator = (0, express_validator_1.body)('websiteUrl').isString().withMessage('not string').isURL().withMessage('not' +
+    ' url');
+//
 const findBlogValidator = (req, res, next) => {
     const blog = blogsRepository_1.blogsRepository.find(req.params.id);
     if (!blog) {
@@ -20,6 +22,8 @@ const findBlogValidator = (req, res, next) => {
             .status(404)
             .json({});
         return;
+        //400? acum errors
+        //add controller
     }
     next();
 };
