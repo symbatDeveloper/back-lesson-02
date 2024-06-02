@@ -24,7 +24,11 @@ export const blogsRepository = {
         return db.blogs.map(p => this.map(p))
     },
     del(id: string) {
+
     let fiteredDb= db.blogs.filter(b => b.id !== id)
+        db.blogs=fiteredDb
+        console.log(fiteredDb);
+
     },
     put(blog: BlogInputModel, id: string) {
    // const updateBlog= db.blogs.find(b => b.id === id)

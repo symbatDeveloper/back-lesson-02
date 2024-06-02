@@ -25,6 +25,8 @@ exports.blogsRepository = {
     },
     del(id) {
         let fiteredDb = db_1.db.blogs.filter(b => b.id !== id);
+        db_1.db.blogs = fiteredDb;
+        console.log(fiteredDb);
     },
     put(blog, id) {
         // const updateBlog= db.blogs.find(b => b.id === id)
