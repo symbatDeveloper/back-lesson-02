@@ -19,10 +19,10 @@ export const postsRouter = Router()
 
 postsRouter.post('/', ...postValidators, createPostController)
 postsRouter.get('/', getPostsController)
-postsRouter.get('/:id',  blogIdValidator,findPostController)
-postsRouter.delete('/:id',   blogIdValidator,adminMiddleware,delPostController)
-postsRouter.put('/:id',   blogIdValidator,adminMiddleware,inputCheckErrorsMiddleware, putPostController)
-
+postsRouter.get('/:id',  findPostValidator,blogIdValidator, findPostController)
+postsRouter.delete('/:id',   adminMiddleware,findPostValidator,blogIdValidator,delPostController)
+postsRouter.put('/:id',   findPostValidator,...postValidators, putPostController)
+//adminMiddleware,findPostValidator,inputCheckErrorsMiddleware,
 
 // blogsRouter.post('/', ...blogValidators, createBlogController)
 // blogsRouter.get('/', getBlogsController)

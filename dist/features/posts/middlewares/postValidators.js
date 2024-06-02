@@ -19,7 +19,6 @@ exports.contentValidator = (0, express_validator_1.body)('content').isString().w
 exports.blogIdValidator = (0, express_validator_1.body)('blogId').isString().withMessage('not string')
     .trim().custom(blogId => {
     const blog = blogsRepository_1.blogsRepository.find(blogId);
-    // console.log(blog)
     return !!blog;
 }).withMessage('no blog');
 const findPostValidator = (req, res, next) => {
@@ -27,7 +26,7 @@ const findPostValidator = (req, res, next) => {
     if (!post) {
         res
             .status(404)
-            .json({ errorsMessages: { field: '404', message: '' } });
+            .json({});
         return;
     }
     next();
@@ -41,3 +40,4 @@ exports.postValidators = [
     exports.blogIdValidator,
     inputCheckErrorsMiddleware_1.inputCheckErrorsMiddleware,
 ];
+//adminMiddleware,

@@ -20,7 +20,6 @@ export const contentValidator = body('content').isString().withMessage('not stri
 export const blogIdValidator = body('blogId').isString().withMessage('not string')
     .trim().custom(blogId => {
         const blog = blogsRepository.find(blogId)
-        // console.log(blog)
         return !!blog
     }).withMessage('no blog')
 
@@ -30,7 +29,7 @@ export const findPostValidator = (req: Request<{id: string}>, res: Response, nex
 
         res
             .status(404)
-            .json({errorsMessages: {field: '404', message:''}})
+            .json({})
         return
     }
 
@@ -40,9 +39,14 @@ export const findPostValidator = (req: Request<{id: string}>, res: Response, nex
 
 export const postValidators = [
     adminMiddleware,
+
     titleValidator,
     shortDescriptionValidator,
     contentValidator,
     blogIdValidator,
+
     inputCheckErrorsMiddleware,
+
+
 ]
+//adminMiddleware,

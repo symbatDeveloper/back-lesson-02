@@ -13,6 +13,6 @@ blogsRouter.post('/', ...blogValidators, createBlogController)
 blogsRouter.get('/', getBlogsController)
 blogsRouter.get('/:id', findBlogValidator, findBlogController)
 blogsRouter.delete('/:id', adminMiddleware, findBlogValidator, delBlogController)
-blogsRouter.put('/:id',  ...blogValidators,findBlogValidator, putBlogController)
+blogsRouter.put('/:id',  findBlogValidator,...blogValidators, putBlogController)
 
 // не забудьте добавить роут в апп

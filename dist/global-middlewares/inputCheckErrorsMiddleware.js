@@ -10,7 +10,7 @@ const inputCheckErrorsMiddleware = (req, res, next) => {
         res
             .status(400)
             .json({
-            errorsMessages: eArray.map(x => ({ field: x.path, message: x.msg }))
+            errorsMessages: eArray.map(x => ({ message: x.msg, field: x.path }))
         });
         return;
     }
